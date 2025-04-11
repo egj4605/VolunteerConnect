@@ -5,7 +5,8 @@
 #define MAX_EVENTS 10
 #define MAX_LENGTH 50
 
-typedef struct {
+typedef struct 
+{
     char name[MAX_LENGTH];
     char skill[MAX_LENGTH];
     char interest[MAX_LENGTH];
@@ -13,7 +14,8 @@ typedef struct {
     int hours;
 } Volunteer;
 
-typedef struct {
+typedef struct 
+{
     char title[MAX_LENGTH];
     char interestTag[MAX_LENGTH];
     char location[MAX_LENGTH];
@@ -27,8 +29,10 @@ int volunteerCount = 0;
 int eventCount = 0;
 
 // Register a new volunteer
-void registerVolunteer() {
-    if (volunteerCount >= MAX_VOLUNTEERS) {
+void registerVolunteer() 
+{
+    if (volunteerCount >= MAX_VOLUNTEERS) 
+    {
         printf("Volunteer limit reached.\n");
         return;
     }
@@ -53,8 +57,10 @@ void registerVolunteer() {
 }
 
 // Add a new event
-void addEvent() {
-    if (eventCount >= MAX_EVENTS) {
+void addEvent() 
+{
+    if (eventCount >= MAX_EVENTS) 
+    {
         printf("Event limit reached.\n");
         return;
     }
@@ -78,29 +84,35 @@ void addEvent() {
 }
 
 // Notify matching volunteers
-void notifyVolunteers() {
+void notifyVolunteers() 
+{
     printf("\n--- Notifying Volunteers About Matching Events ---\n");
 
-    for (int i = 0; i < volunteerCount; i++) {
+    for (int i = 0; i < volunteerCount; i++) 
+    {
         printf("\nChecking matches for %s...\n", volunteers[i].name);
         int matchFound = 0;
 
-        for (int j = 0; j < eventCount; j++) {
+        for (int j = 0; j < eventCount; j++) 
+        {
             if (strcmp(volunteers[i].interest, events[j].interestTag) == 0 &&
-                strcmp(volunteers[i].location, events[j].location) == 0) {
+                strcmp(volunteers[i].location, events[j].location) == 0) 
+            {
                 printf("🔔 %s is a good match for event: %s\n", volunteers[i].name, events[j].title);
                 matchFound = 1;
             }
         }
 
-        if (!matchFound) {
+        if (!matchFound) 
+        {
             printf("No matching events found for %s.\n", volunteers[i].name);
         }
     }
 }
 
 // Log volunteer hours
-void logVolunteerHours() {
+void logVolunteerHours() 
+{
     char name[MAX_LENGTH];
     int hours;
 
@@ -110,8 +122,10 @@ void logVolunteerHours() {
 
     int found = 0;
 
-    for (int i = 0; i < volunteerCount; i++) {
-        if (strcmp(name, volunteers[i].name) == 0) {
+    for (int i = 0; i < volunteerCount; i++) 
+    {
+        if (strcmp(name, volunteers[i].name) == 0) 
+        {
             printf("Enter hours to log: ");
             scanf("%d", &hours);
             volunteers[i].hours += hours;
@@ -121,25 +135,30 @@ void logVolunteerHours() {
         }
     }
 
-    if (!found) {
+    if (!found) 
+    {
         printf("Volunteer not found.\n");
     }
 }
 
 // View all volunteer records
-void viewVolunteers() {
+void viewVolunteers() 
+{
     printf("\n--- Volunteer List ---\n");
-    for (int i = 0; i < volunteerCount; i++) {
+    for (int i = 0; i < volunteerCount; i++) 
+    {
         printf("Name: %s | Skill: %s | Interest: %s | Location: %s | Hours: %d\n",
             volunteers[i].name, volunteers[i].skill, volunteers[i].interest, 
             volunteers[i].location, volunteers[i].hours);
     }
 }
 
-int main() {
+int main() 
+{
     int choice;
 
-    while (1) {
+    while (1) 
+    {
         printf("\n--- Volunteer Management Menu ---\n");
         printf("1. Register Volunteer\n");
         printf("2. Add Event\n");
@@ -150,7 +169,8 @@ int main() {
         printf("Enter choice: ");
         scanf("%d", &choice);
 
-        switch (choice) {
+        switch (choice) 
+        {
             case 1: registerVolunteer(); break;
             case 2: addEvent(); break;
             case 3: notifyVolunteers(); break;
