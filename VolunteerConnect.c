@@ -111,30 +111,17 @@ void notifyVolunteers()
 }
 
 // Log volunteer hours
-void logVolunteerHours() 
+void ViewEvents() 
 {
     char name[MAX_LENGTH];
-    int hours;
+    int Events;
 
-    printf("\n--- Log Volunteer Hours ---\n");
+    printf("\n--- View your Events ---\n");
     printf("Enter volunteer name: ");
     scanf(" %[^\n]", name);
+// TO DO: sort and display events listed for the volunteer
 
-    int found = 0;
-
-    for (int i = 0; i < volunteerCount; i++) 
-    {
-        if (strcmp(name, volunteers[i].name) == 0) 
-        {
-            printf("Enter hours to log: ");
-            scanf("%d", &hours);
-            volunteers[i].hours += hours;
-            printf("Hours updated! Total: %d hours\n", volunteers[i].hours);
-            found = 1;
-            break;
-        }
-    }
-
+    
     if (!found) 
     {
         printf("Volunteer not found.\n");
@@ -147,9 +134,9 @@ void viewVolunteers()
     printf("\n--- Volunteer List ---\n");
     for (int i = 0; i < volunteerCount; i++) 
     {
-        printf("Name: %s | Skill: %s | Interest: %s | Location: %s | Hours: %d\n",
+        printf("Name: %s | Skill: %s | Interest: %s | Location: %s\n",
             volunteers[i].name, volunteers[i].skill, volunteers[i].interest, 
-            volunteers[i].location, volunteers[i].hours);
+            volunteers[i].location);
     }
 }
 
@@ -163,7 +150,7 @@ int main()
         printf("1. Register Volunteer\n");
         printf("2. Add Event\n");
         printf("3. Notify Volunteers of Opportunities\n");
-        printf("4. Log Volunteer Hours\n");
+        printf("4. View your Events\n");
         printf("5. View Volunteers\n");
         printf("6. Exit\n");
         printf("Enter choice: ");
@@ -174,7 +161,7 @@ int main()
             case 1: registerVolunteer(); break;
             case 2: addEvent(); break;
             case 3: notifyVolunteers(); break;
-            case 4: logVolunteerHours(); break;
+            case 4: ViewEvents(); break;
             case 5: viewVolunteers(); break;
             case 6: return 0;
             default: printf("Invalid choice. Try again.\n");
