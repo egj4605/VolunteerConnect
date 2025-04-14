@@ -185,7 +185,3 @@ int main()
 }
 
 
-    displayGroups(volunteers, num);
-
-    return 0;
-}
