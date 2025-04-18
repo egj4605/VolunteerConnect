@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
 #define MAX_VOLUNTEERS 100
 #define MAX_EVENTS 10
@@ -39,7 +38,7 @@ void volunteerSave(Volunteer vData)
     if (vmsA == NULL)
     {
         printf("\nCould not open file, extiing now.\n");
-        exit(0);
+        return;
     }
     fprintf(vmsA, "New Volunteer: \n");
     fprintf(vmsA, "Name: %s\n", vData.name);
@@ -57,7 +56,7 @@ void eventSave(Event eData)
     if (vmsA == NULL)
     {
         printf("\nCould not open file. Exiting now.\n");
-        exit(0);
+        return;
     }
     fprintf(vmsA, "New Event: \n");
     fprintf(vmsA, "Title: %s\n", eData.title);
