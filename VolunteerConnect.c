@@ -245,10 +245,7 @@ void viewEvents()
         return;
     }
 
-    printf("\n--- View your Events ---\n");
-    printf("Enter volunteer name: ");
-    scanf(" %[^\n]", name);
-
+    printf("\n--- View Events ---\n");
     for (int i = 0; i < eventCount; i++)
     {
         printf("Event #%d: \n", i +1);
