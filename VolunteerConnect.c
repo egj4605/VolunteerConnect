@@ -110,28 +110,43 @@ void notifyVolunteers()
     }
 }
 
-// Log volunteer hours
-void ViewEvents() 
+//Display events//
+void viewEvents() 
 {
     char name[MAX_LENGTH];
     int Events;
 
+    if (eventCount == 0)
+    {
+        printf("\nNo events found.\n");
+        return;
+    }
+
     printf("\n--- View your Events ---\n");
     printf("Enter volunteer name: ");
     scanf(" %[^\n]", name);
-// TO DO: sort and display events listed for the volunteer
 
-    
-    if (!found) 
+    for (int i = 0; i < eventCount; i++)
     {
-        printf("Volunteer not found.\n");
+        printf("Event #%d: \n", i +1);
+        printf("%s\n", events[i].title);
+        printf("Required Skill: %s\n", events[i].interestedskill);
+        printf("Location: %s\n", events[i].location);
+        printf("Required hours: %d\n\n", events[i].requiredHours);
     }
+
 }
 
-// View all volunteer records
+// Display volunteer records
 void viewVolunteers() 
 {
     printf("\n--- Volunteer List ---\n");
+    if (volunteerCount == 0)
+    {
+        printf("\nNo volunteers listed.\n");
+        return;
+    }
+    
     for (int i = 0; i < volunteerCount; i++) 
     {
         printf("Name: %s | Skill: %s | Interest: %s | Location: %s\n",
@@ -161,10 +176,10 @@ int main()
             case 1: registerVolunteer(); break;
             case 2: addEvent(); break;
             case 3: notifyVolunteers(); break;
-            case 4: ViewEvents(); break;
+            case 4: viewEvents(); break;
             case 5: viewVolunteers(); break;
             case 6: return 0;
-            default: printf("Invalid choice. Try again.\n");
+            default: printf("\nInvalid choice. Try again.\n");
         }
     }
 
