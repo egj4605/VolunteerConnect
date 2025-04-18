@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_VOLUNTEERS 100
 #define MAX_EVENTS 10
 #define MAX_LENGTH 50
 
+//Struct representing volunteer//
 typedef struct 
 {
     char name[MAX_LENGTH];
@@ -14,6 +16,7 @@ typedef struct
     int hours;
 } Volunteer;
 
+//Struct representing event//
 typedef struct 
 {
     char title[MAX_LENGTH];
@@ -22,6 +25,7 @@ typedef struct
     int requiredHours;
 } Event;
 
+//Arrays and counters//
 Volunteer volunteers[MAX_VOLUNTEERS];
 Event events[MAX_EVENTS];
 
@@ -204,6 +208,7 @@ int main()
 
     while (1) 
     {
+        //Actions menu and selection//
         printf("\n--- Volunteer Management Menu ---\n");
         printf("1. Register Volunteer\n");
         printf("2. Add Event\n");
