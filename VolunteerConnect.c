@@ -28,6 +28,43 @@ Event events[MAX_EVENTS];
 int volunteerCount = 0;
 int eventCount = 0;
 
+//Save volunteer to volunteers.txt file//
+void volunteerSave(Volunteer vData)
+{
+    FILE *vmsA = fopen("volunteers.txt", "a");
+    if (vmsA == NULL)
+    {
+        printf("\nCould not open file, extiing now.\n");
+        exit(0);
+    }
+    fprintf(vmsA, "New Volunteer: \n");
+    fprintf(vmsA, "Name: %s\n", vData.name);
+    fprintf(vmsA, "Skill: %s\n", vData.skill);
+    fprintf(vmsA, "Interest: %s\n", vData.interest);
+    fprintf(vmsA, "Location: %s\n", vData.location);
+
+    fclose(vmsA);
+}
+
+//Save event to events.txt file//
+void eventSave(Event eData)
+{
+    FILE *vmsA = fopen("events.txt", "a");
+    if (vmsA == NULL)
+    {
+        printf("\nCould not open file. Exiting now.\n");
+        exit(0);
+    }
+    fprintf(vmsA, "New Event: \n");
+    fprintf(vmsA, "Title: %s\n", eData.title);
+    fprintf(vmsA, "Skill required: %s\n", eData.interestedskill);
+    fprintf(vmsA, "Location: %s\n", eData.location);
+    fprintf(vmsA, "Required hours: %d\n\n", eData.requiredHours);
+
+    fclose(vmsA);
+
+}
+
 // Register a new volunteer
 void registerVolunteer() 
 {
@@ -52,6 +89,9 @@ void registerVolunteer()
 
     volunteers[volunteerCount].hours = 0;
     volunteerCount++;
+
+    //Save to file//
+    volunteerSave(volunteers[volunteerCount -1 ]);
 
     printf("Registration successful!\n");
 }
@@ -79,6 +119,9 @@ void addEvent()
     scanf("%d", &events[eventCount].requiredHours);
 
     eventCount++;
+
+    //Save to file//
+    eventSave(events[eventCount -1]);
 
     printf("Event added successfully!\n");
 }
