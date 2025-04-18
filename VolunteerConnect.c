@@ -17,7 +17,7 @@ typedef struct
 typedef struct 
 {
     char title[MAX_LENGTH];
-    char interestTag[MAX_LENGTH];
+    char interestedskill[MAX_LENGTH];
     char location[MAX_LENGTH];
     int requiredHours;
 } Event;
@@ -69,8 +69,8 @@ void addEvent()
     printf("Event Title: ");
     scanf(" %[^\n]", events[eventCount].title);
 
-    printf("Interest Tag (Medical, Logistics, Education): ");
-    scanf(" %[^\n]", events[eventCount].interestTag);
+    printf("Interest skills (Medical, Logistics, Education): ");
+    scanf(" %[^\n]", events[eventCount].interestedskill);
 
     printf("Location: ");
     scanf(" %[^\n]", events[eventCount].location);
@@ -95,7 +95,7 @@ void notifyVolunteers()
 
         for (int j = 0; j < eventCount; j++) 
         {
-            if (strcmp(volunteers[i].interest, events[j].interestTag) == 0 &&
+            if (strcmp(volunteers[i].interest, events[j].interestedskill) == 0 &&
                 strcmp(volunteers[i].location, events[j].location) == 0) 
             {
                 printf("🔔 %s is a good match for event: %s\n", volunteers[i].name, events[j].title);
