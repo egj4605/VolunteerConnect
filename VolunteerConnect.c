@@ -64,7 +64,7 @@ void vSave(Volunteer vData)
     fclose(vmsA);
 }
 
-//Load volunteer data from vSave.txt//
+//Load past volunteer data//
 void vLoad()
 {
     FILE *vmsA = fopen("vSave.txt", "r");
@@ -121,6 +121,7 @@ void eSave(Event eData)
     fclose(vmsA);
 }
 
+//Load in past event information//
 void eLoad()
 {
     FILE *vmsA = fopen("eSave.txt", "r");
