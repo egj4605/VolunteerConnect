@@ -31,7 +31,7 @@ Event events[MAX_EVENTS];
 int volunteerCount = 0;
 int eventCount = 0;
 
-//Save volunteer to volunteers.txt file//
+//Save volunteer to volunteers.txt file, logged to have access later//
 void volunteerSave(Volunteer vData)
 {
     FILE *vmsA = fopen("volunteers.txt", "a");
@@ -47,6 +47,45 @@ void volunteerSave(Volunteer vData)
     fprintf(vmsA, "Location: %s\n\n", vData.location);
 
     fclose(vmsA);
+}
+
+//Save volunteer data to file to be easily read by computer//
+void vSave(Volunteer vData)
+{
+    FILE *vmsA = fopen("vSave.txt", "a");
+    if (vmsA == NULL)
+    {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    fprintf(vmsA, "%s;%s;%s;%s;%d", vData.name, vData.skill, vData.interest, vData.location, vData.hours);
+
+    fclose(vmsA);
+}
+
+//Load volunteer data from vSave.txt//
+void vLoad()
+{
+    FILE *vmsA = fopen("vSave.txt", "r");
+    if (vmsA == NULL)
+    {
+        printf("No saved volunteer data found.\n");
+        return;
+    }
+
+    while (fscanf(vmsA, "%[^;];%[^;];%[^;];%[^;];%d", 
+    volunteers[volunteerCount].name, volunteers[volunteerCount].skill, volunteers[volunteerCount].interest,
+    volunteers[volunteerCount].location, &volunteers[volunteerCount].hours) == 5)
+    {
+        volunteerCount++;
+        if (volunteerCount >= MAX_VOLUNTEERS)
+        break;
+    }
+
+    fclose(vmsA);
+    printf("Volunteer data loaded successfully.\n");
+
 }
 
 //Save event to events.txt file//
@@ -65,6 +104,42 @@ void eventSave(Event eData)
     fprintf(vmsA, "Required hours: %d\n\n", eData.requiredHours);
 
     fclose(vmsA);
+
+}
+
+//Save event data to be read by computer//
+void eSave(Event eData)
+{
+    FILE *vmsA = fopen("eSave.txt", "a");
+    if (vmsA == NULL)
+    {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    fprintf(vmsA, "%s;%s;%s;%d", eData.title, eData.interestedskill, eData.location, eData.requiredHours);
+    fclose(vmsA);
+}
+
+void eLoad()
+{
+    FILE *vmsA = fopen("eSave.txt", "r");
+    if (vmsA == NULL)
+    {
+        printf("No saved event data found.\n");
+        return;
+    }
+
+    while (fscanf(vmsA, "%[^;];%[^;];%[^;];%d", 
+    events[eventCount].title, events[eventCount].interestedskill, events[eventCount].location, &events[eventCount].requiredHours) == 4)
+    {
+        eventCount++;
+        if (eventCount >= MAX_EVENTS)
+        break;
+    }
+
+    fclose(vmsA);
+    printf("Event data loaded successfully.\n");
 
 }
 
@@ -95,6 +170,7 @@ void registerVolunteer()
 
     //Save to file//
     volunteerSave(volunteers[volunteerCount -1 ]);
+    vSave(volunteers[volunteerCount -1]);
 
     printf("Registration successful!\n");
 }
@@ -125,6 +201,7 @@ void addEvent()
 
     //Save to file//
     eventSave(events[eventCount -1]);
+    eSave(events[eventCount- 1]);
 
     printf("Event added successfully!\n");
 }
@@ -203,6 +280,8 @@ void viewVolunteers()
 
 int main() 
 {
+    vLoad();
+    eLoad();
     int choice;
 
     while (1) 
