@@ -45,7 +45,7 @@ void volunteerSave(Volunteer vData)
     fprintf(vmsA, "Name: %s\n", vData.name);
     fprintf(vmsA, "Skill: %s\n", vData.skill);
     fprintf(vmsA, "Interest: %s\n", vData.interest);
-    fprintf(vmsA, "Location: %s\n", vData.location);
+    fprintf(vmsA, "Location: %s\n\n", vData.location);
 
     fclose(vmsA);
 }
