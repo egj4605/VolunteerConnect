@@ -222,7 +222,7 @@ void notifyVolunteers()
             if (strcmp(volunteers[i].interest, events[j].interestedskill) == 0 &&
                 strcmp(volunteers[i].location, events[j].location) == 0) 
             {
-                printf("🔔 %s is a good match for event: %s\n", volunteers[i].name, events[j].title);
+                printf("%s is a good match for event: %s\n", volunteers[i].name, events[j].title);
                 matchFound = 1;
             }
         }
