@@ -70,7 +70,7 @@ void vLoad()
     FILE *vmsA = fopen("vSave.txt", "r");
     if (vmsA == NULL)
     {
-        printf("No saved volunteer data found.\n");
+        printf("\nNo saved volunteer data found.\n");
         return;
     }
 
@@ -84,7 +84,7 @@ void vLoad()
     }
 
     fclose(vmsA);
-    printf("Volunteer data loaded successfully.\n");
+    printf("\nVolunteer data loaded successfully.\n");
 
 }
 
@@ -173,7 +173,7 @@ void registerVolunteer()
     volunteerSave(volunteers[volunteerCount -1 ]);
     vSave(volunteers[volunteerCount -1]);
 
-    printf("Registration successful!\n");
+    printf("\nRegistration successful!\n");
 }
 
 // Add a new event
@@ -204,7 +204,7 @@ void addEvent()
     eventSave(events[eventCount -1]);
     eSave(events[eventCount- 1]);
 
-    printf("Event added successfully!\n");
+    printf("\nEvent added successfully!\n");
 }
 
 // Notify matching volunteers
