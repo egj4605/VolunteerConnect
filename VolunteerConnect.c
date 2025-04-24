@@ -59,7 +59,7 @@ void vSave(Volunteer vData)
         return;
     }
 
-    fprintf(vmsA, "%s;%s;%s;%s;%d", vData.name, vData.skill, vData.interest, vData.location, vData.hours);
+    fprintf(vmsA, "%s;%s;%s;%s;%d\n", vData.name, vData.skill, vData.interest, vData.location, vData.hours);
 
     fclose(vmsA);
 }
@@ -117,7 +117,7 @@ void eSave(Event eData)
         return;
     }
 
-    fprintf(vmsA, "%s;%s;%s;%d", eData.title, eData.interestedskill, eData.location, eData.requiredHours);
+    fprintf(vmsA, "%s;%s;%s;%d\n", eData.title, eData.interestedskill, eData.location, eData.requiredHours);
     fclose(vmsA);
 }
 
