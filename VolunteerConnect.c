@@ -289,7 +289,7 @@ int main()
         printf("1. Register Volunteer\n");
         printf("2. Add Event\n");
         printf("3. Notify Volunteers of Opportunities\n");
-        printf("4. View your Events\n");
+        printf("4. View Events\n");
         printf("5. View Volunteers\n");
         printf("6. Exit\n");
         printf("Enter choice: ");
