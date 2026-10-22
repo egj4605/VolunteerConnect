@@ -27,3 +27,9 @@
 1. **Compile the source code using GCC:**
    ```bash
    gcc VolunteerConnect.c -o VolunteerConnect
+
+## 👥 Contributors (CSE 1320 Group Project) <!-- CONTRIBUTORS GO NEAR THE BOTTOM -->
+* **Evan Jorge-Munoz** – Initial application architecture, event/volunteer view functions, core CLI interaction.
+* **Alaya Bolinski** – File I/O persistence functions, documentation review.
+* **Leonardo Quinonez** – Project tracking, testing, and documentation lead.
+* **Jonathan Aliwarga** – Struct data design, skill matching logic, team coordination.
