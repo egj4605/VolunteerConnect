@@ -1,5 +1,7 @@
 # VolunteerConnect 🤝
 
+![VolunteerConnect Logo](./assets/logo.png)
+
 **VolunteerConnect** is a C-based command-line volunteer management system designed to bridge the gap between community volunteers and hosting organizations. It matches volunteer skills and interest areas with active organizational postings and issues targeted notifications.
 
 ---
